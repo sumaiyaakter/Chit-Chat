@@ -1,0 +1,168 @@
+.chats{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    @include tablet-max{
+        background-color: $white;
+        left: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+        visibility: hidden;
+        opacity: 0;
+        @include transition(.5s);
+        height: 100%;
+        &.open{
+            visibility: visible;
+            opacity: 1;
+            left: 0;
+        }
+    }
+    .chat-body {
+        @include transition(.5s);
+        width: 100%;
+        &.small-sidebar {
+            @media screen and (min-width: 992px){
+                width: calc(100% - 250px)!important;
+            }
+            @media screen and (min-width: 1200px){
+                width: calc(100% - 350px)!important;
+            }
+        }
+        .chat-header{
+            .search-form-1{
+                bottom: -31px;
+                right: 0;
+                width: 100%;
+                min-width: 300px;
+                visibility: hidden;
+                opacity: 0;
+                @include transition(.3s);
+                transform: translateY(20px);
+                @include mobile-sm-max {
+                    min-width: 200px;
+                }
+                &.show{
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(10px);
+                }
+            }
+        }
+        .chat-content{
+            .message {
+                .dropdown {
+                    .btn{
+                        padding: 6px;
+                        margin-left: 10px;
+                    }
+                }
+                .text p {
+                    &:hover{
+                        .dropdown {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                    background-color: $light-gray-200;
+                }
+            }
+            .message.right{
+                @include mobile-max {
+                    margin-left: 60px;
+                }
+                .text p {
+                    background-color: $primary-color;
+                    color: $white;
+                }
+            }
+            .text{
+                p{
+                    padding: 15px;
+                    border-radius: 3px;
+                    margin-bottom: 15px;
+                }
+                .time{
+                    font-size: 12px;
+                    color: $gray-200;
+                    margin-top: -10px;
+                }
+            }
+        }
+        // chat-footer
+        &.small-sidebar {
+            .chat-footer{
+                @media screen and (min-width: 992px){
+                    width: calc(100% - 635px);
+                }
+                @media screen and (min-width: 1200px){
+                    width: calc(100% - 835px);
+                }
+            }
+        }
+        .chat-footer{
+            padding: 16px 5px;
+            width: 100%;
+            left: auto;
+            @include transition(.5s);
+            @media screen and (min-width: 992px){
+                width: calc(100% - 385px);
+            }
+            @media screen and (min-width: 1200px){
+                width: calc(100% - 485px);
+            }
+            .dropdown-menu{
+                min-width: 200px;
+            }
+            .form-control{
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .fade:not(.show) {
+        opacity: 1;
+    }
+     // right-sidebar
+     .right-sidebar {
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        opacity: 0;
+        background-color: $white;
+        @include transition(.5s);
+        @include tablet-max{
+            z-index: 1021;
+        }
+        @media screen and (min-width: 992px){
+            min-width: 250px;
+            width: 250px;
+        }
+        @media screen and (min-width: 1200px){
+            min-width: 350px;
+            width: 350px;
+        }
+        &.show{
+            opacity: 1;
+            right: 0;
+            @include transition(.5s);
+        }
+        .status::before{
+            right: -15px;
+            top: 7px;
+        }
+        .close-icon.user-profile-hide {
+            right: 30px;
+            cursor: pointer;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: $light-gray-200;
+        }
+    }
+}

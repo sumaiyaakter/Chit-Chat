@@ -1,0 +1,97 @@
+// /**--------- START OF MEDIA QUERY --------*/
+// ---- min----
+@mixin mobile {  //sm
+  @media screen and (min-width: 576px) { 
+      @content;
+  }
+}
+@mixin tablet { //md
+  @media screen and (min-width: 768px) {
+      @content;
+  }
+}
+@mixin desktop {  //lg
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+@mixin desktop-lg { //xl
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+// ---- max ----
+@mixin mobile-sm-max {  //xs
+  @media screen and (max-width: 575px) {
+    @content;
+  }
+}
+@mixin mobile-max {  //sm
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin tablet-max {   //md
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin desktop-max {  //lg
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+//Example of usage
+// h1{
+//   @include desktop{
+//     color: #000;
+//   }
+// }
+
+// h1{
+//   @include desktop-max{
+//     color: #000;
+//   }
+// }
+
+
+// /**--------- START OF PLACEHOLDER TEXT COLOR --------*/
+@mixin  input-placeholder {
+    &.placeholder {
+      @content;
+    }
+    &:-moz-placeholder {
+      @content;
+    }
+    &::-moz-placeholder {
+      @content;
+    }
+    &:-ms-input-placeholder {
+      @content;
+    }
+    &::-webkit-input-placeholder {
+      @content;
+    }
+  }
+
+//   Example of usage
+// input{
+//     @include input-placeholder{
+//         color: #000;
+//     }
+// }
+
+// /**--------- START OF TRANSITION --------*/
+@mixin transition($transition) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+//   Example of usage
+// .btn{
+//   @include transition(.3s);
+// }
+
