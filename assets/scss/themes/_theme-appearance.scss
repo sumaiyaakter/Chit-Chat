@@ -1,7 +1,55 @@
 /** ================ Dark Theme ================ **/
-[data-appearance=dark]{
-    background: $black;
-    h1,h2,h3,h4,h5,h6{
-        color: white;
-    }
-}
+// [data-appearance=dark]{
+//     background: $black;
+//     h1,h2,h3,h4,h5,h6{
+//         color: white;
+//     }
+// }
+
+
+// #{$theme-dark} {
+//     $primary-colo: $dark;
+//   }
+  
+//   #{$theme-light} {
+//     background-color: $light;
+//     color: $dark;
+//   }
+  
+//   #{$theme-cupcake} {
+//     background-color: $cupcake;
+//     color: $dark;
+//   }
+  
+//   #{$theme-ocean} {
+//     background-color: $ocean;
+//     color: $light;
+//   }
+  
+//   #{$theme-forest} {
+//     background-color: $forest;
+//     color: $light;
+//   }
+  
+//   #{$theme-sunset} {
+//     background-color: $sunset;
+//     color: $light;
+//   }
+  
+//   #{$theme-royalPurple} {
+//     background-color: $royalPurple;
+//     color: $light;
+//   }
+  
+//   #{$theme-lemonLime} {
+//     background-color: $lemonLime;
+//     color: $dark;
+//   }
+  
+//   #{$theme-skyBlue} {
+//     background-color: $skyBlue;
+//     color: $dark;
+//   }
+
+
+

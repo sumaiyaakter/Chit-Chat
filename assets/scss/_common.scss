@@ -1,9 +1,11 @@
 body {
     font-family: $primary-font;
 }
+
 :focus {
     outline: none;
 }
+
 a {
     text-decoration: none;
     display: inline-block;
@@ -12,110 +14,179 @@ a {
     &:hover {
         text-decoration: none;
     }
+
     &:focus {
         outline: 0;
     }
 }
-button, .btn {
+
+button,
+.btn {
     border: 0;
     background: 0;
+
     &:focus {
         outline: 0;
         box-shadow: none;
     }
 }
-span{
+
+span {
     display: block;
 }
 
 /*======== Colors ========*/
 // ALL OTHER COLOR HELPER CLASSES. 
-.text{
+.text {
     &--primary {
-        color: $primary-color;
+        color: var(--primary-color);
     }
+
     &--white {
         color: $white;
     }
+
     &--dark-100 {
         color: $dark-100;
     }
+
     &--gray-200 {
         color: $gray-200;
     }
 }
+
 // BACKGROUND COLORS
-.bg{
+.bg {
     &--primary {
-        background-color: $primary-color;
+        background-color: var(--primary-color);
     }
-    &--white{
+
+    &--white {
         background-color: $white;
     }
-    &--light-gray-200{
+
+    &--light-gray-200 {
         background-color: $light-gray-200;
     }
-    
+
 }
+
 // BORDER COLOR
 .border {
     &--primary {
-        border-color: $border-primary !important;
+        border-color: var(--border-primary) !important;
     }
+
     &--gray {
         border-color: $border-gray !important;
     }
 }
 
 /*======== Button ========*/
-.btn{
+.btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
     text-transform: capitalize;
     @include transition(.3s);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &:active {
+        background-color: var(--primary-color) !important;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba(#000, .2);
+        z-index: -1;
+        @include transition(.3s)
+    }
+
+    &:hover {
+        background-color: var(--primary-color);
+
+        &::before {
+            width: 100%;
+            color: white;
+        }
+    }
+
+    &-primary {
+        background-color: var(--primary-color);
+        padding: 7px 20px;
+        width: 100%;
+    }
+
+    &-submit:hover {
+        background-color: var(--primary-color);
+    }
+
+    &:focus-visible {
+        background-color: var(--primary-color);
+        box-shadow: none !important;
+    }
 }
+
 /*======== Helpers ========*/
-.rounded{
-    &-5{
+.rounded {
+    &-5 {
         border-radius: 5px;
     }
 }
+
 .z-index1 {
     z-index: 1;
 }
-.hw-40{
+
+.hw-40 {
     height: 40px;
     width: 40px;
 }
-.hw-100{
+
+.hw-100 {
     height: 100px;
     width: 100px;
 }
-.width--500{
+
+.width--500 {
     width: 500px;
 }
+
 /**! ----- Remove Margin and padding (spacing) from the first and last child---- **/
 .remove-space--bottom> {
-    li, div {
+
+    li,
+    div {
         &:last-child {
-                padding-bottom: 0 !important;
-                margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
         }
     }
 }
+
 .remove-space--right> {
-    li, div {
+
+    li,
+    div {
         &:last-child {
-                padding-right: 0 !important;
-                margin-right: 0 !important;
+            padding-right: 0 !important;
+            margin-right: 0 !important;
         }
     }
 }
+
 /*======== tooltip ========*/
 a[data-tooltip] {
     position: relative;
+
     &::before {
         content: attr(data-tooltip);
         position: absolute;
@@ -128,71 +199,91 @@ a[data-tooltip] {
         border-radius: 5px;
         white-space: nowrap;
         text-decoration: none;
-        @include tablet-max{
-          padding: 3px 7px;
-        }
-  }
-  &:hover::before {
-      display: block;
-  }
-  &[data-placement="top"]::before {
-    top: -25px;
-    left: 0px;
-    @include tablet-max{
-      top: -20px;
-    }
-    @include mobile{
-      left: 8px;
-    }
-    @include desktop{
-      left: 10px;
 
+        @include tablet-max {
+            padding: 3px 7px;
+        }
     }
-  }
+
+    &:hover::before {
+        display: block;
+    }
+
+    &[data-placement="top"]::before {
+        top: -25px;
+        left: 0px;
+
+        @include tablet-max {
+            top: -20px;
+        }
+
+        @include mobile {
+            left: 8px;
+        }
+
+        @include desktop {
+            left: 10px;
+
+        }
+    }
 }
+
 .chats a[data-tooltip][data-placement="top"]::before {
-  top: -35px;
+    top: -35px;
 }
+
 /*======== scroll bar ========*/
-.sidebar, .navigation{
+.sidebar,
+.navigation {
     &::-webkit-scrollbar {
         width: 0px;
-    } 
+    }
+
     &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 0px $white; 
-    } 
+        -webkit-box-shadow: inset 0 0 0px $white;
+    }
+
     &::-webkit-scrollbar-thumb {
-        -webkit-box-shadow: inset 0 0 0px $white; 
+        -webkit-box-shadow: inset 0 0 0px $white;
     }
 }
-.chats{
+
+.chats {
     &::-webkit-scrollbar {
         width: 5px;
-    } 
+    }
+
     &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 0px #000000; 
-    } 
+        -webkit-box-shadow: inset 0 0 0px #000000;
+    }
+
     &::-webkit-scrollbar-thumb {
-        -webkit-box-shadow: inset 0 0 0px #D1D6DB; 
+        -webkit-box-shadow: inset 0 0 0px #D1D6DB;
     }
 }
+
 /*======== accordion ========*/
 .accordion-button {
-    &:focus{
+    &:focus {
         box-shadow: none;
     }
 }
-.user-profile-accordion, .setting-tab{
+
+.user-profile-accordion,
+.setting-tab {
     .accordion-button {
         color: $dark-100;
     }
+
     .accordion-button:not(.collapsed) {
         background-color: transparent;
     }
 }
+
 /*======== status ========*/
-.status{
+.status {
     display: inline-block;
+
     &::before {
         position: absolute;
         content: "";
@@ -200,111 +291,135 @@ a[data-tooltip] {
         height: 8px;
         border-radius: 10px;
     }
+
     &.online::before {
         background: #44a675;
     }
+
     &.offline:before {
         background-color: $gray-100;
     }
+
     &.invisible-icon:before {
         border: 3px solid #C8CACB !important;
         background-color: $white;
     }
+
     &.away:before {
         background-color: #EFBF1E;
     }
 }
-.chats-tab .status::before, .chats .status::before{
+
+.chats-tab .status::before,
+.chats .status::before {
     border: 2px solid #fff;
     width: 10px;
     height: 10px;
     right: 15px;
     top: 25px;
 }
-.slick-carousel{
-    .status{
+
+.slick-carousel {
+    .status {
         display: block;
-        &::before{
+
+        &::before {
             left: 5px;
         }
     }
 }
+
 /*======== Dropdown ========*/
-.dropdown{
-    &-menu{
+.dropdown {
+    &-menu {
         padding: 0;
         box-shadow: rgba(0, 0, 0, 0.13) 0px 32px 54px 0px;
         border: 0;
-        a{
+
+        a {
             text-transform: capitalize;
             padding: 5px 15px;
-            &:hover{
+
+            &:hover {
                 background-color: $light-gray-100;
             }
         }
     }
+
     &-item:active {
         background: none;
     }
-    &-item:hover, 
+
+    &-item:hover,
     &-item:focus {
         color: black;
         background: none;
     }
-    .btn-secondary{
+
+    .btn-secondary {
         &:active:focus {
             box-shadow: none;
         }
-        &:focus, 
+
+        &:focus,
         &:hover {
             background: none;
         }
     }
+
     &-toggle::after {
         display: none;
     }
-    
+
 }
+
 /*======== Email address ========*/
-.email-address{
+.email-address {
     overflow: hidden;
-    text-overflow:ellipsis;
-    display:inline-block;
+    text-overflow: ellipsis;
+    display: inline-block;
     word-wrap: break-all;
     max-width: 100%;
     color: $dark-100;
     font-size: 16px;
     font-weight: 500;
-    &:hover{
+
+    &:hover {
         color: $dark-100;
     }
 }
+
 /*======== slick-carousel ========*/
-.slick-carousel{
-    .slick-slide img{
+.slick-carousel {
+    .slick-slide img {
         border: 2px solid $border-gray;
     }
 }
+
 /*======== Form ========*/
-.form{
-    .form-control{
+.form {
+    .form-control {
         @include transition(.3s);
+
         &:focus {
             box-shadow: none;
-            border-color: $border-primary;
+            border-color: var(--border-primary);
         }
     }
+
     input {
         border: 1px solid $border-gray;
         border-radius: 3px;
         padding: 5px 15px;
         color: $gray-200;
         font-size: 14px;
-        @include input-placeholder{
+
+        @include input-placeholder {
             color: $gray-200;
         }
     }
 }
+
 // Search
 .search-form-1 {
     button {
@@ -315,9 +430,88 @@ a[data-tooltip] {
         font-size: 14px;
     }
 }
+
 // .modal form
-.modal-form{
-    .btn:hover{
+.modal-form {
+    .btn:hover {
         background-color: darken($primary-color, 7%);
     }
+}
+
+
+/*======== Login, Sign in ========*/
+.login,
+.sign-up {
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+
+    @media screen and (max-height: 570px) {
+        margin: 0;
+    }
+
+    .form-area {
+        background-color: white;
+        padding: 30px;
+        border-radius: 5px;
+    }
+
+    .link {
+        cursor: pointer;
+        color: var(--primary-color);
+    }
+}
+
+// copy
+.text {
+
+    .dropdown-menu {
+        li {
+            display: flex;
+
+            &:nth-child(1) {
+                a {
+                    &::before {
+                        content: "\f0c5";
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                a {
+                    &::before {
+                        content: "\f1f8";
+                    }
+                }
+            }
+        }
+
+        i {
+            cursor: pointer;
+            margin-right: 15px;
+            margin-top: 6px;
+        }
+
+        a {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                right: 10px;
+                top: 6px;
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+            }
+
+        }
+    }
+}
+
+.copied-text {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    color: red;
 }

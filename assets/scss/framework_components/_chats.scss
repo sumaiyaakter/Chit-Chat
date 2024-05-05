@@ -21,6 +21,7 @@
     .chat-body {
         @include transition(.5s);
         width: 100%;
+        position: relative;
         &.small-sidebar {
             @media screen and (min-width: 992px){
                 width: calc(100% - 250px)!important;
@@ -52,7 +53,7 @@
         .chat-content{
             .message {
                 .dropdown {
-                    .btn{
+                    button.dropdown-toggle{
                         padding: 6px;
                         margin-left: 10px;
                     }
@@ -72,7 +73,7 @@
                     margin-left: 60px;
                 }
                 .text p {
-                    background-color: $primary-color;
+                    background-color: var(--primary-color);
                     color: $white;
                 }
             }

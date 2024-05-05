@@ -1,7 +1,8 @@
-/node_modules
+node_modules
+
 # Local Netlify folder
 .netlify
-/package-lock.json
-/package.json 
-/node_modules
+package-lock.json
+package.json
 debug.log
+gulpfile.js

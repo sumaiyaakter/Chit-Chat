@@ -21,3 +21,11 @@ $primary-color: #16a085 !default;
 //border-color
 $border-primary: $primary-color !default;
 $border-gray: #dbdbdb !default;;
+
+
+
+
+:root {
+  --primary-color: #{$primary-color}; 
+  --border-primary: #{$primary-color}; 
+}

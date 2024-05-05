@@ -1,0 +1,66 @@
+.theme-switcher {
+  position: relative;
+  right: 20px;
+  z-index: 9999;
+
+  .dropdown {
+    background-color: var(--primary-color);
+    position: absolute;
+    right: 0;
+    top: 30px;
+    padding: 10px 10px;
+    list-style: none;
+    border-radius: 3px;
+    transform: translateY(20px);
+    transition: .3s;
+    display: none;
+    box-shadow: 2px 4px 5px 1px rgba(0,0,0,.3);
+
+    &.active {
+      transform: translateY(10px);
+      display: block !important;
+    }
+
+    li {
+      text-transform: capitalize;
+      padding-bottom: 10px;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      a {
+        display: block;
+        padding: 6px 40px;
+        border-radius: 3px;
+        cursor: pointer;
+        color: $white;
+
+        &:hover {
+          color: $white;
+          background-color: rgba($white, .4);
+        }
+
+      }
+    }
+  }
+
+  .palette {
+    font-size: 20px;
+    color: $dark-100;
+    cursor: pointer;
+  }
+}
+
+.sidebar .theme-switcher {
+  position: fixed;
+  right: 30px;
+  top: 12px;
+  background-color: var(--primary-color);
+  padding: 3px 10px;
+  border-radius: 5px;
+
+  .palette {
+    color: $white;
+  }
+}
